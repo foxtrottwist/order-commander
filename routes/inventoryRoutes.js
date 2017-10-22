@@ -1,25 +1,23 @@
 const mongoose = require('mongoose')
 
-const InventoryList = mongoose.model('inventoryList')
+const InventoryList = mongoose.model('inventoryLists')
 
 module.exports = (app) => {
-  app.get('/api/inventory_list', async (req, res) => {
+  app.get('/api/inventory_lists', async (req, res) => {
     const list = await InventoryList.find()
 
     res.send(list)
   })
 
-  app.post('/api/inventory_list', async (req, res) => {
-    const {
-      listTitle, category, sortOrder, inventoryItem, count,
-    } = req.body
+  app.post('/api/inventory_lists', async (req, res) => {
+    const { listTitle, list } = req.body
 
     const inventoryList = new InventoryList({
       listTitle,
-      category,
-      sortOrder,
-      inventoryItem,
-      count,
+      list: list
+        .split(',')
+        .map((inventoryItem, index) => ({ inventoryItem: inventoryItem.trim(), sortOrder: index })),
+      dateCreated: Date.now(),
     })
 
     await inventoryList.save()
