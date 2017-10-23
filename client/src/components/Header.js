@@ -1,5 +1,17 @@
-import React from "react";
+import React from 'react';
+import styled from 'styled-components';
 
-const Header = () => <h1>Hello Header</h1>;
+const HeaderBox = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Header = () => {
+  return (
+    <HeaderBox>
+      <h1>Order Commander</h1>
+    </HeaderBox>
+  );
+};
 
 export default Header;

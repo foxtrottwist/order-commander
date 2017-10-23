@@ -1,11 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
 
 const Dashboard = () => {
   return (
-    <div>
+    <div style={{ textAlign: 'center' }}>
       <h2>Hello Dashboard</h2>
-      <Link to="/inventory-lists">Inventory Lists</Link>
     </div>
   );
 };

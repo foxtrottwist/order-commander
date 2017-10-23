@@ -4,7 +4,7 @@ const { Schema } = mongoose
 const InventoryItemSchema = require('./InventoryItem')
 
 const inventoryListSchema = new Schema({
-  listTitle: String,
+  title: String,
   list: [InventoryItemSchema],
   dateCreated: Date,
 })
