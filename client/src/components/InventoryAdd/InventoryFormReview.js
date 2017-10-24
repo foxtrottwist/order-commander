@@ -34,7 +34,6 @@ const FieldBox = styled.div`
 `;
 
 const InventoryFormReview = ({ onCancel, formValues, createList, history }) => {
-  console.log(onCancel, formValues, createList, history);
   const fieldValues = FIELDS.map(({ label, name }) => {
     return (
       <FieldBox key={name}>
