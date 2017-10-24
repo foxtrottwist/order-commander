@@ -17,7 +17,7 @@ module.exports = (app) => {
       list: list
         .split(',')
         .map((inventoryItem, index) => ({
-          inventoryItem: inventoryItem.trim().toUpperCase,
+          inventoryItem: inventoryItem.trim().toUpperCase(),
           sortOrder: index,
         })),
       dateCreated: Date.now(),

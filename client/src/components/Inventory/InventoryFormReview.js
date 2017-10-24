@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Button } from './styles';
 import FIELDS from './constants';
+import * as actions from '../../actions';
 
 const ReviewBox = styled.div`
   display: flex;
@@ -31,7 +33,8 @@ const FieldBox = styled.div`
   width: 20rem;
 `;
 
-const InventoryFormReview = ({ onCancel, formValues }) => {
+const InventoryFormReview = ({ onCancel, formValues, createList, history }) => {
+  console.log(onCancel, formValues, createList, history);
   const fieldValues = FIELDS.map(({ label, name }) => {
     return (
       <FieldBox key={name}>
@@ -48,7 +51,11 @@ const InventoryFormReview = ({ onCancel, formValues }) => {
         <Button type="button" color="#b60009" onClick={onCancel}>
           Back &larr;
         </Button>
-        <Button type="button" color="#016025">
+        <Button
+          type="button"
+          color="#016025"
+          onClick={() => createList(formValues, history)}
+        >
           Submit
         </Button>
       </ButtonBox>
@@ -60,4 +67,6 @@ function mapStateToProps(state) {
   return { formValues: state.form.inventoryForm.values };
 }
 
-export default connect(mapStateToProps)(InventoryFormReview);
+export default connect(mapStateToProps, actions)(
+  withRouter(InventoryFormReview)
+);
