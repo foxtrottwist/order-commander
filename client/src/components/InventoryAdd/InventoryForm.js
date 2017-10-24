@@ -61,7 +61,7 @@ class InventoryForm extends Component {
           {this.renderFields()}
           <ButtonBox>
             <Link
-              to="/inventory"
+              to="/take-inventory"
               style={{
                 textDecoration: 'none',
                 color: '#b60009',

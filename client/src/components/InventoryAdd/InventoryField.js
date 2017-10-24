@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ErrorStyle = styled.div`color: #b60009;`;
+const Error = styled.div`
+  color: #b60009;
+  max-width: 18rem;
+`;
 
 const InventoryField = ({ input, label, meta }) => {
   return (
     <div>
       <label>{label}</label>
       <input {...input} />
-      <ErrorStyle>{meta.touched && meta.error}</ErrorStyle>
+      <Error>{meta.touched && meta.error}</Error>
     </div>
   );
 };
