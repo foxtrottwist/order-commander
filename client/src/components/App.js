@@ -5,8 +5,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header';
 import NavBar from './NavBar';
 import Dashboard from './Dashboard';
-import Inventory from './Inventory';
-import InventoryNew from './Inventory/InventoryNew';
+import OrderPilot from './OrderPilot';
+import TakeInventory from './TakeInventory';
+import InventoryAdd from './InventoryAdd';
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -22,8 +23,9 @@ const App = () => {
           <Header />
           <NavBar />
           <Route exact path="/" component={Dashboard} />
-          <Route exact path="/inventory" component={Inventory} />
-          <Route exact path="/inventory-lists/add" component={InventoryNew} />
+          <Route path="/order-pilot" component={OrderPilot} />
+          <Route path="/take-inventory" component={TakeInventory} />
+          <Route path="/inventory-lists/add" component={InventoryAdd} />
         </div>
       </BrowserRouter>
     </Wrapper>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Inventory = () => (
+const TakeInventory = () => (
   <div style={{ textAlign: 'center', marginTop: '1rem' }}>
     <Link
       to="/inventory-lists/add"
@@ -16,4 +16,4 @@ const Inventory = () => (
   </div>
 );
 
-export default Inventory;
+export default TakeInventory;

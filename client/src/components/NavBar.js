@@ -18,8 +18,8 @@ const NavBar = () => {
   return (
     <Nav>
       <Link to="/">Dashboard</Link>
-      <Link to="/inventory">Take Inventory</Link>
-      <Link to="">Order Pilot</Link>
+      <Link to="/take-inventory">Take Inventory</Link>
+      <Link to="/order-pilot">Order Pilot</Link>
     </Nav>
   );
 };
