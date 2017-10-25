@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 import { reducer as reduxForm } from 'redux-form';
 
-import inventoryListReducer from './inventoryListReducer';
+import createInventoryList from './createInventoryListReducer';
+import inventoryLists from './inventoryListsReducer';
 
 export default combineReducers({
   form: reduxForm,
-  list: inventoryListReducer
+  listStatus: createInventoryList,
+  lists: inventoryLists
 });
