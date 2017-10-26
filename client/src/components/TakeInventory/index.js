@@ -20,7 +20,7 @@ const InventoryActions = styled.div`
   a {
     text-decoration: none;
     color: #000;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
   }
 `;
 
@@ -33,7 +33,7 @@ class TakeInventory extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ marginTop: '1.7rem' }}>
         <InventoryDashboard>
           <ListView
             lists={this.props.lists}

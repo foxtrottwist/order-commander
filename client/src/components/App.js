@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './Header';
 import NavBar from './NavBar';
+import Dashboard from './Dashboard';
 import OrderPilot from './OrderPilot';
 import TakeInventory from './TakeInventory';
 import InventoryAdd from './InventoryAdd';
@@ -21,6 +22,7 @@ const App = () => {
         <div>
           <Header />
           <NavBar />
+          <Route exact path="/" component={Dashboard} />
           <Route path="/order-pilot" component={OrderPilot} />
           <Route path="/take-inventory" component={TakeInventory} />
           <Route path="/inventory-lists/add" component={InventoryAdd} />

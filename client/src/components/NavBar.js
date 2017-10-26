@@ -17,6 +17,7 @@ const Nav = styled.div`
 const NavBar = () => {
   return (
     <Nav>
+      <Link to="/">Dashboard</Link>
       <Link to="/take-inventory">Take Inventory</Link>
       <Link to="/order-pilot">Order Pilot</Link>
     </Nav>
