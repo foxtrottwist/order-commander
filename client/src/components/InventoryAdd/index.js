@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
+
 import InventoryForm from './InventoryForm';
 import InventoryFormReview from './InventoryFormReview';
 

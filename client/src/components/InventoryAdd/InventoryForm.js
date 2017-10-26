@@ -3,7 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Button } from './utils/styles';
+import { Button } from './utils/sharedStyles';
 import InventoryField from './InventoryField';
 import FIELDS from './utils/constants';
 

@@ -1,11 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const InnerListBox = styled.div`
-  width: 16rem;
-  height: 30rem;
-  overflow: auto;
-`;
+import { InnerListBox } from './utils/sharedStyles';
 
 const ListView = ({ list }) => (
   <InnerListBox>

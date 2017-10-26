@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Button } from './utils/styles';
+import { Button } from './utils/sharedStyles';
 import FIELDS from './utils/constants';
 import * as actions from '../../actions';
 
