@@ -3,9 +3,9 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Button } from './styles';
+import { Button } from './utils/styles';
 import InventoryField from './InventoryField';
-import FIELDS from './constants';
+import FIELDS from './utils/constants';
 
 const FormBox = styled.div`
   display: flex;

@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Button } from './styles';
-import FIELDS from './constants';
+import { Button } from './utils/styles';
+import FIELDS from './utils/constants';
 import * as actions from '../../actions';
 
 const ReviewBox = styled.div`

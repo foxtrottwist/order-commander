@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const FieldBox = styled.div`height: 7rem;`;
+
 const Error = styled.div`
   color: #b60009;
   max-width: 18rem;
@@ -8,11 +10,11 @@ const Error = styled.div`
 
 const InventoryField = ({ input, label, meta }) => {
   return (
-    <div>
+    <FieldBox>
       <label>{label}</label>
       <input {...input} />
       <Error>{meta.touched && meta.error}</Error>
-    </div>
+    </FieldBox>
   );
 };
 export default InventoryField;
