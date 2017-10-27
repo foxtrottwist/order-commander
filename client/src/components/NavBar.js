@@ -10,16 +10,20 @@ const Nav = styled.div`
   a {
     text-decoration: none;
     color: #000;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 `;
 
 const NavBar = () => {
   return (
     <Nav>
-      <Link to="/">Dashboard</Link>
-      <Link to="/take-inventory">Take Inventory</Link>
-      <Link to="/order-pilot">Order Pilot</Link>
+      <Link to="/inventory-lists">Dashboard</Link>
+      <Link to="/inventory-lists/add">
+        <span style={{ color: '#016025' }}>&#x2b;</span>Create New List
+      </Link>
+      <Link to="/inventory-lists/add">
+        <span style={{ color: '#b60009' }}>&#x2613;</span>Edit List
+      </Link>
     </Nav>
   );
 };
