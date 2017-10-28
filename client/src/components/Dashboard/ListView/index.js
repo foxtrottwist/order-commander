@@ -6,10 +6,10 @@ import List from './List';
 
 const ListBox = styled.div`display: flex;`;
 
-const ListView = ({ lists, selectList, list }) => (
+const ListView = props => (
   <ListBox>
-    <ListIndex lists={lists} selectList={selectList} />
-    <List list={list} />
+    <ListIndex {...props} />
+    <List {...props} />
   </ListBox>
 );
 

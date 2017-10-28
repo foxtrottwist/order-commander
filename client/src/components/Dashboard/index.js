@@ -24,8 +24,8 @@ class Dashboard extends Component {
         <DashboardBox>
           <ListView
             lists={this.props.lists}
-            selectList={list => this.setState({ selectedList: list })}
-            list={this.state.selectedList}
+            onSelectList={list => this.setState({ selectedList: list })}
+            selectedList={this.state.selectedList}
           />
         </DashboardBox>
       </div>
