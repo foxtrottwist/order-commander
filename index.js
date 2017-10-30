@@ -1,14 +1,14 @@
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const path = require('path')
 
-const keys = require('./config/keys')
 require('./models/InventoryList')
 const inventoryRoutes = require('./routes/inventoryRoutes')
 
 mongoose.Promise = global.Promise
-mongoose.connect(keys.mongoURI)
+mongoose.connect(process.env.MONGO_URI)
 
 const app = express()
 
@@ -24,6 +24,6 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT
 // eslint-disable-next-line
 app.listen(PORT, () => console.log(`Listening on ${PORT}`))

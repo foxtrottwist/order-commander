@@ -22,11 +22,13 @@ class Dashboard extends Component {
     return (
       <div style={{ marginTop: '1.7rem' }}>
         <DashboardBox>
-          <ListView
-            lists={this.props.lists}
-            onSelectList={list => this.setState({ selectedList: list })}
-            selectedList={this.state.selectedList}
-          />
+          {!this.props ? null : (
+            <ListView
+              lists={this.props.lists}
+              onSelectList={list => this.setState({ selectedList: list })}
+              selectedList={this.state.selectedList}
+            />
+          )}
         </DashboardBox>
       </div>
     );
