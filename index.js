@@ -8,7 +8,9 @@ require('./models/InventoryList')
 const inventoryRoutes = require('./routes/inventoryRoutes')
 
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI, {
+  useMongoClient: true,
+})
 
 const app = express()
 
