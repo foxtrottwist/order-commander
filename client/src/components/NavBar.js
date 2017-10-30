@@ -6,7 +6,7 @@ const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 50%;
+  max-width: 30%;
   a {
     text-decoration: none;
     color: #000;
@@ -20,9 +20,6 @@ const NavBar = () => {
       <Link to="/inventory-lists">Dashboard</Link>
       <Link to="/inventory-lists/add">
         <span style={{ color: '#016025' }}>&#x2b;</span>Create New List
-      </Link>
-      <Link to="/inventory-lists/add">
-        <span style={{ color: '#b60009' }}>&#x2613;</span>Edit List
       </Link>
     </Nav>
   );
