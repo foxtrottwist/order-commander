@@ -5,7 +5,7 @@ import { CREATE_INVENTORY_LIST, FETCH_INVENTORY_LISTS } from './types';
 export const createList = (values, history) => async dispatch => {
   const res = await axios.post('/api/inventory_lists', values);
 
-  history.push('/take-inventory');
+  history.push('/inventory-lists');
 
   dispatch({ type: CREATE_INVENTORY_LIST, payload: res.data });
 };
