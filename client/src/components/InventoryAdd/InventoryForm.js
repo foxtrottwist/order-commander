@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Button } from './utils/sharedStyles';
-import InventoryField from './InventoryField';
-import FIELDS from './utils/constants';
+import { FIELDS, TITLES } from './utils/constants';
 
 const FormBox = styled.div`
   display: flex;
@@ -20,6 +19,12 @@ const FormBox = styled.div`
     width: 20rem;
     padding: 1%;
   }
+  select {
+    display: block;
+    height: 1.5rem;
+    width: 18rem;
+    border: 0.001rem solid #000;
+  }
   input {
     display: block;
     height: 1.5rem;
@@ -31,24 +36,52 @@ const FormBox = styled.div`
   }
 `;
 
-const FieldBox = styled.div`margin: 0 auto;`;
+const FieldBox = styled.div`
+  height: 7rem;
+  margin: 0 auto;
+`;
 
 const ButtonBox = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
+const Error = styled.div`
+  color: #b60009;
+  max-width: 18rem;
+`;
+
+const TitleField = ({ input, label, meta }) => {
+  return (
+    <FieldBox>
+      <label>{label}</label>
+      <select {...input}>
+        <option selected="selected" />
+        {TITLES.map(({ value, title }) => (
+          <option value={value}>{title}</option>
+        ))}
+      </select>
+      <Error>{meta.touched && meta.error}</Error>
+    </FieldBox>
+  );
+};
+
+const ItemField = ({ input, label, meta }) => {
+  return (
+    <FieldBox>
+      <label>{label}</label>
+      <input {...input} />
+      <Error>{meta.touched && meta.error}</Error>
+    </FieldBox>
+  );
+};
+
 class InventoryForm extends Component {
   renderFields() {
     return FIELDS.map(({ label, name }) => {
       return (
         <FieldBox key={name}>
-          <Field
-            label={label}
-            type="text"
-            name={name}
-            component={InventoryField}
-          />
+          <Field label={label} type="text" name={name} component={ItemField} />
         </FieldBox>
       );
     });
@@ -58,7 +91,22 @@ class InventoryForm extends Component {
     return (
       <FormBox>
         <form onSubmit={this.props.handleSubmit(this.props.onListSubmit)}>
-          {this.renderFields()}
+          <FieldBox>
+            <Field
+              label="List List"
+              type="text"
+              name="title"
+              component={TitleField}
+            />
+          </FieldBox>
+          <FieldBox>
+            <Field
+              label="List Items"
+              type="text"
+              name="list"
+              component={ItemField}
+            />
+          </FieldBox>
           <ButtonBox>
             <Link
               to="/inventory-lists"

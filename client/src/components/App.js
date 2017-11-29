@@ -10,7 +10,6 @@ import InventoryAdd from './InventoryAdd';
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  max-width: 1600px;
   width: 100%;
 `;
 
