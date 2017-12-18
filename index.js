@@ -4,7 +4,9 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const path = require('path')
 
+require('./models/User')
 require('./models/InventoryList')
+const createUserRoute = require('./routes/createUserRoute')
 const inventoryRoute = require('./routes/inventoryRoute')
 
 mongoose.Promise = global.Promise
@@ -16,6 +18,7 @@ const app = express()
 
 app.use(bodyParser.json())
 
+app.use('/api/create_user', createUserRoute)
 app.use('/api/inventory_lists', inventoryRoute)
 
 if (process.env.NODE_ENV === 'production') {
