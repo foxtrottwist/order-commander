@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 
 require('./models/InventoryList')
-const inventoryRoutes = require('./routes/inventoryRoutes')
+const inventoryRoute = require('./routes/inventoryRoutes')
 
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGO, {
@@ -16,7 +16,7 @@ const app = express()
 
 app.use(bodyParser.json())
 
-inventoryRoutes(app)
+app.use('/api/inventory_lists', inventoryRoute)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))

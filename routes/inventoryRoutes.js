@@ -1,15 +1,16 @@
 const mongoose = require('mongoose')
+const router = require('express').Router()
 
 const InventoryList = mongoose.model('inventoryLists')
 
-module.exports = (app) => {
-  app.get('/api/inventory_lists', async (req, res) => {
+router
+  .route('/')
+  .get(async (req, res) => {
     const lists = await InventoryList.find()
 
     res.send(lists)
   })
-
-  app.post('/api/inventory_lists', async (req, res) => {
+  .post(async (req, res) => {
     const { title, list } = req.body
 
     const inventoryList = new InventoryList({
@@ -24,4 +25,5 @@ module.exports = (app) => {
     await inventoryList.save()
     res.send('Success!')
   })
-}
+
+module.exports = router
