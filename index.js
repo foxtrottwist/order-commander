@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 
 require('./models/InventoryList')
-const inventoryRoute = require('./routes/inventoryRoutes')
+const inventoryRoute = require('./routes/inventoryRoute')
 
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGO, {

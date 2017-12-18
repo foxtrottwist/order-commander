@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
-
-const { Schema } = mongoose
 const InventoryItemSchema = require('./InventoryItem')
 
-const inventoryListSchema = new Schema({
+const { Schema } = mongoose
+
+const InventoryListSchema = new Schema({
   title: String,
   list: [InventoryItemSchema],
   dateCreated: Date,
 })
 
-mongoose.model('inventoryLists', inventoryListSchema)
+mongoose.model('inventoryLists', InventoryListSchema)
