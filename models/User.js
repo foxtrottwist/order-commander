@@ -8,6 +8,7 @@ const UserSchema = new Schema({
     unique: true,
     lowercase: true,
     trim: true,
+    required: 'You must provide an email',
   },
   password: String,
   isAdmin: { type: Boolean, default: false },
