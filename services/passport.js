@@ -1,4 +1,4 @@
 const passport = require('passport')
 const mongoose = require('mongoose')
 
-const User = mongoose.model('user')
+const User = mongoose.model('users')
