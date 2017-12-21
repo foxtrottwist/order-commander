@@ -27,4 +27,12 @@ UserSchema.pre('save', function(next) {
     .catch(error => next(error))
 })
 
+// eslint-disable-next-line
+UserSchema.methods.comparePassword = function(providedPasword, callback) {
+  bcrypt
+    .compare(providedPasword, this.password)
+    .then(isMatch => callback(null, isMatch))
+    .catch(error => callback(error))
+}
+
 module.exports = mongoose.model('users', UserSchema)
