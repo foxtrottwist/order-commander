@@ -25,8 +25,8 @@ const app = express()
 app.use(bodyParser.json())
 
 app.use('/login', requireLogin, loginRoute)
-app.use('/api/create_user', requireAuthentication, createUserRoute)
-app.use('/api/inventory_lists', requireAuthentication, inventoryRoute)
+app.use('/api/create_user', createUserRoute)
+app.use('/api/inventory_lists', inventoryRoute)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
