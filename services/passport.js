@@ -14,7 +14,7 @@ const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
     }
     if (!user) {
       return done(null, false)
-    }
+    } // eslint-disable-next-line
     return user.comparePassword(password, (error, isMatch) => {
       if (error) {
         return done(error)

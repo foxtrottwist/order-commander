@@ -12,6 +12,9 @@ const loginRoute = require('./routes/loginRoute')
 const createUserRoute = require('./routes/createUserRoute')
 const inventoryRoute = require('./routes/inventoryRoute')
 
+const requireLogin = passport.authenticate('local', { session: false })
+const requireAuthentication = passport.authenticate('jwt', { session: false })
+
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGO, {
   useMongoClient: true,
@@ -21,9 +24,9 @@ const app = express()
 
 app.use(bodyParser.json())
 
-app.use('/login', passport.authenticate('local', { session: false }), loginRoute)
-app.use('/api/create_user', createUserRoute)
-app.use('/api/inventory_lists', passport.authenticate('jwt', { session: false }), inventoryRoute)
+app.use('/login', requireLogin, loginRoute)
+app.use('/api/create_user', requireAuthentication, createUserRoute)
+app.use('/api/inventory_lists', requireAuthentication, inventoryRoute)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
