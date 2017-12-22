@@ -1,7 +1,7 @@
 require('dotenv').config()
 const passport = require('passport')
 const mongoose = require('mongoose')
-const { Strategy, ExtractJwt } = require('passport-jwt')
+const JwtStrategy = require('passport-jwt').Strategy
 const LocalStrategy = require('passport-local')
 
 const User = mongoose.model('users')
@@ -28,14 +28,21 @@ const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
   })
 })
 
+const fromCookie = (req) => {
+  let token = null
+  if (req && req.cookies) {
+    token = req.cookies.access_token
+  }
+  return token
+}
 // jwtFromRequest Tell the strategy where to look for the token
 // secretOrKey Tell the strategy how to decode the payload
 const jwtOptions = {
-  jwtFromRequest: ExtractJwt.fromHeader('authorization'),
+  jwtFromRequest: fromCookie,
   secretOrKey: process.env.SECRET,
 }
 
-const jwtAuth = new Strategy(jwtOptions, (payload, done) => {
+const jwtAuth = new JwtStrategy(jwtOptions, (payload, done) => {
   // If error we call done with the error object, false means we did not find a user
   // Done is a callback that is a part of passport
   User.findOne({ _id: payload.sub })

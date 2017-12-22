@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 const passport = require('passport')
 const path = require('path')
 
@@ -23,6 +24,7 @@ mongoose.connect(process.env.MONGO, {
 const app = express()
 
 app.use(bodyParser.json())
+app.use(cookieParser())
 
 app.use('/login', requireLogin, loginRoute)
 app.use('/api/create_user', requireAuthentication, createUserRoute)
