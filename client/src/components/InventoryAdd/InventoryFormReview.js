@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Button } from './utils/sharedStyles';
-import { FIELDS } from './utils/constants';
+import { ButtonBox, Button } from '../utils/sharedStyles';
+import { INVENTORY_FIELDS } from '../utils/constants';
 import * as actions from '../../actions';
 
 const ReviewBox = styled.div`
@@ -23,18 +23,13 @@ const ReviewBox = styled.div`
   }
 `;
 
-const ButtonBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
 const FieldBox = styled.div`
   margin: 0 auto;
   width: 20rem;
 `;
 
 const InventoryFormReview = ({ onCancel, formValues, createList, history }) => {
-  const fieldValues = FIELDS.map(({ label, name }) => {
+  const fieldValues = INVENTORY_FIELDS.map(({ label, name }) => {
     return (
       <FieldBox key={name}>
         <label>{label}</label>
@@ -42,6 +37,7 @@ const InventoryFormReview = ({ onCancel, formValues, createList, history }) => {
       </FieldBox>
     );
   });
+
   return (
     <ReviewBox>
       <h4>Please review your entries</h4>
@@ -51,7 +47,7 @@ const InventoryFormReview = ({ onCancel, formValues, createList, history }) => {
           Back &larr;
         </Button>
         <Button
-          type="button"
+          type="submit"
           color="#016025"
           onClick={() => createList(formValues, history)}
         >

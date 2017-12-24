@@ -26,7 +26,7 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cookieParser())
 
-app.use('/login', requireLogin, loginRoute)
+app.use('/api/login', requireLogin, loginRoute)
 app.use('/api/create_user', requireAuthentication, createUserRoute)
 app.use('/api/inventory_lists', requireAuthentication, inventoryRoute)
 

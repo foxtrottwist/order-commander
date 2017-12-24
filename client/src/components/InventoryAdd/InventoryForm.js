@@ -1,55 +1,15 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
-import { Button } from './utils/sharedStyles';
-import { FIELDS, TITLES } from './utils/constants';
-
-const FormBox = styled.div`
-  display: flex;
-  margin-top: 3rem;
-  justify-content: center;
-
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 20rem;
-    width: 20rem;
-    padding: 1%;
-  }
-  select {
-    display: block;
-    height: 1.5rem;
-    width: 18rem;
-    border: 0.001rem solid #000;
-  }
-  input {
-    display: block;
-    height: 1.5rem;
-    width: 18rem;
-    border: 0.001rem solid #000;
-  }
-  label {
-    font-size: 1.2rem;
-  }
-`;
-
-const FieldBox = styled.div`
-  height: 7rem;
-  margin: 0 auto;
-`;
-
-const ButtonBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Error = styled.div`
-  color: #b60009;
-  max-width: 18rem;
-`;
+import { INVENTORY_FIELDS, INVENTORY_TITLES } from '../utils/constants';
+import {
+  FormBox,
+  FieldBox,
+  ButtonBox,
+  Button,
+  Error
+} from '../utils/sharedStyles';
 
 const TitleField = ({ input, label, meta }) => {
   return (
@@ -57,8 +17,10 @@ const TitleField = ({ input, label, meta }) => {
       <label>{label}</label>
       <select {...input}>
         <option selected="selected" />
-        {TITLES.map(({ value, title }) => (
-          <option value={value}>{title}</option>
+        {INVENTORY_TITLES.map(({ value, title }) => (
+          <option key={value} value={value}>
+            {title}
+          </option>
         ))}
       </select>
       <Error>{meta.touched && meta.error}</Error>
@@ -77,23 +39,13 @@ const ItemField = ({ input, label, meta }) => {
 };
 
 class InventoryForm extends Component {
-  renderFields() {
-    return FIELDS.map(({ label, name }) => {
-      return (
-        <FieldBox key={name}>
-          <Field label={label} type="text" name={name} component={ItemField} />
-        </FieldBox>
-      );
-    });
-  }
-
   render() {
     return (
       <FormBox>
         <form onSubmit={this.props.handleSubmit(this.props.onListSubmit)}>
           <FieldBox>
             <Field
-              label="List List"
+              label="Categories"
               type="text"
               name="title"
               component={TitleField}
@@ -101,7 +53,7 @@ class InventoryForm extends Component {
           </FieldBox>
           <FieldBox>
             <Field
-              label="List Items"
+              label="Items"
               type="text"
               name="list"
               component={ItemField}
@@ -130,7 +82,7 @@ class InventoryForm extends Component {
 
 function validate(values) {
   const errors = {};
-  FIELDS.map(({ name, errorMessage }) => {
+  INVENTORY_FIELDS.map(({ name, errorMessage }) => {
     if (!values[name]) {
       errors[name] = errorMessage;
     }

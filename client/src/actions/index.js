@@ -1,6 +1,14 @@
 import axios from 'axios';
 
-import { CREATE_INVENTORY_LIST, FETCH_INVENTORY_LISTS } from './types';
+import { CREATE_INVENTORY_LIST, FETCH_INVENTORY_LISTS, LOGIN } from './types';
+
+export const login = (values, history) => async dispatch => {
+  const res = await axios.post('/api/login', values);
+
+  history.push('/inventory-lists');
+
+  dispatch({ type: LOGIN, payload: res.data });
+};
 
 export const createList = (values, history) => async dispatch => {
   const res = await axios.post('/api/inventory_lists', values);

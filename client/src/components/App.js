@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header';
 import NavBar from './NavBar';
 import Landing from './Landing';
+import Login from './Login';
 import Dashboard from './Dashboard';
 import InventoryAdd from './InventoryAdd';
 
@@ -21,6 +22,7 @@ const App = () => {
           <Header />
           <NavBar />
           <Route exact path="/" component={Landing} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/inventory-lists" component={Dashboard} />
           <Route path="/inventory-lists/add" component={InventoryAdd} />
         </div>

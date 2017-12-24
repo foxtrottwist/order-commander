@@ -9,7 +9,7 @@ const HeaderBox = styled.div`
 const Header = () => {
   return (
     <HeaderBox>
-      <h1>Order Commander</h1>
+      <h1>Order Admin</h1>
     </HeaderBox>
   );
 };

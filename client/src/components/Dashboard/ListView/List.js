@@ -1,5 +1,5 @@
 import React from 'react';
-import { InnerListBox } from './utils/sharedStyles';
+import { InnerListBox } from '../../utils/sharedStyles';
 
 const ListView = ({ selectedList }) => (
   <InnerListBox>

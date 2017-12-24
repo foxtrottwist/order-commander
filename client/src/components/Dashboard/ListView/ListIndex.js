@@ -1,6 +1,7 @@
 import React from 'react';
-import { InnerListBox } from './utils/sharedStyles';
 import styled from 'styled-components';
+
+import { InnerListBox } from '../../utils/sharedStyles';
 
 const ListHeader = styled.div`
   display: inline-block;
