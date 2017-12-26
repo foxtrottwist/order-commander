@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const router = require('express').Router()
-const tokenForUser = require('../services/token')
 
 const User = mongoose.model('users')
 
@@ -15,7 +14,7 @@ router.route('/').post(async (req, res) => {
     })
 
     await user.save()
-    res.json({ token: tokenForUser(user) })
+    res.send('Success!')
   } catch (error) {
     res.send(error.message)
   }

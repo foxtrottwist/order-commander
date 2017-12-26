@@ -10,6 +10,7 @@ require('./models/User')
 require('./models/InventoryList')
 require('./services/passport')
 const loginRoute = require('./routes/loginRoute')
+const logoutRoute = require('./routes/logoutRoute')
 const createUserRoute = require('./routes/createUserRoute')
 const inventoryRoute = require('./routes/inventoryRoute')
 
@@ -27,6 +28,7 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 
 app.use('/api/login', requireLogin, loginRoute)
+app.use('/api/logout', logoutRoute)
 app.use('/api/create_user', requireAuthentication, createUserRoute)
 app.use('/api/inventory_lists', requireAuthentication, inventoryRoute)
 

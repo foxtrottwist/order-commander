@@ -8,6 +8,7 @@ import Landing from './Landing';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import InventoryAdd from './InventoryAdd';
+import UserCreate from './UserCreate';
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -23,6 +24,7 @@ const App = () => {
           <NavBar />
           <Route exact path="/" component={Landing} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/users/add" component={UserCreate} />
           <Route exact path="/inventory-lists" component={Dashboard} />
           <Route path="/inventory-lists/add" component={InventoryAdd} />
         </div>

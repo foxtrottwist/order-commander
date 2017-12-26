@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ListView from './ListView';
@@ -15,7 +16,7 @@ class Dashboard extends Component {
   state = { selectedList: [] };
 
   componentWillMount() {
-    this.props.fetchInventoryLists();
+    this.props.fetchInventoryLists(this.props.history);
   }
 
   render() {
@@ -39,4 +40,4 @@ function mapStateToProps({ lists }) {
   return { lists };
 }
 
-export default connect(mapStateToProps, actions)(Dashboard);
+export default connect(mapStateToProps, actions)(withRouter(Dashboard));

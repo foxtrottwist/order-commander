@@ -24,7 +24,7 @@ const ItemField = ({ input, label, meta }) => {
   );
 };
 
-class LoginForm extends Component {
+class UserForm extends Component {
   renderFields() {
     return LOGIN_FIELDS.map(({ label, name }) => {
       return (
@@ -36,16 +36,18 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { login, history } = this.props;
+    const { createUser, history } = this.props;
     return (
       <FormBox>
         <form
-          onSubmit={this.props.handleSubmit(values => login(values, history))}
+          onSubmit={this.props.handleSubmit(values =>
+            createUser(values, history)
+          )}
         >
           {this.renderFields()}
           <ButtonBox>
             <Button type="submit" color="#016025">
-              Login
+              Create User
             </Button>
           </ButtonBox>
         </form>
@@ -55,5 +57,5 @@ class LoginForm extends Component {
 }
 
 export default connect(null, actions)(
-  reduxForm({ form: 'loginForm' })(withRouter(LoginForm))
+  reduxForm({ form: 'userForm' })(withRouter(UserForm))
 );
