@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import { reducer as reduxForm } from 'redux-form';
+import { reducer as form } from 'redux-form';
 
-import createInventoryList from './createInventoryListReducer';
 import inventoryLists from './inventoryListsReducer';
+import authenticated from './authenticatedReducer';
 
 export default combineReducers({
-  form: reduxForm,
-  listStatus: createInventoryList,
-  lists: inventoryLists
+  form,
+  inventoryLists,
+  authenticated
 });

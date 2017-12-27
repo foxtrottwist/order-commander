@@ -8,8 +8,23 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import App from './components/App';
 import reducers from './reducers';
+import { loadState, saveState } from './localStorage';
 
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+// instead of passing a generic state object ({}) as the second argument of createStore,
+// we are passing state loaded from the user's localStorage
+const persistedState = loadState();
+const store = createStore(
+  reducers,
+  persistedState,
+  applyMiddleware(reduxThunk)
+);
+
+// this saves only the authenticated property of the application state
+store.subscribe(() =>
+  saveState({
+    authenticated: store.getState().authenticated
+  })
+);
 
 ReactDOM.render(
   <Provider store={store}>

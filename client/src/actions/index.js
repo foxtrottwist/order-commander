@@ -1,34 +1,43 @@
 import axios from 'axios';
 
 import {
-  CREATE_INVENTORY_LIST,
-  FETCH_INVENTORY_LISTS,
   LOGIN,
-  CREATE_USER
+  LOGOUT,
+  CREATE_USER,
+  CREATE_INVENTORY_LIST,
+  FETCH_INVENTORY_LISTS
 } from './types';
 
 export const login = (values, history) => async dispatch => {
-  const res = await axios.post('/api/login', values);
+  await axios.post('/api/login', values);
 
-  history.push('/inventory-lists');
+  history.push('/dashboard');
 
-  dispatch({ type: LOGIN, payload: res.data });
+  dispatch({ type: LOGIN });
+};
+
+export const logout = history => async dispatch => {
+  await axios.get('/api/logout');
+
+  history.push('/');
+
+  dispatch({ type: LOGOUT });
 };
 
 export const createUser = (values, history) => async dispatch => {
-  const res = await axios.post('/api/create_user', values);
+  await axios.post('/api/create_user', values);
 
-  history.push('/inventory-lists');
+  history.push('/dashboard');
 
-  dispatch({ type: CREATE_USER, payload: res.data });
+  dispatch({ type: CREATE_USER });
 };
 
 export const createList = (values, history) => async dispatch => {
-  const res = await axios.post('/api/inventory_lists', values);
+  await axios.post('/api/inventory_lists', values);
 
-  history.push('/inventory-lists');
+  history.push('/dashboard');
 
-  dispatch({ type: CREATE_INVENTORY_LIST, payload: res.data });
+  dispatch({ type: CREATE_INVENTORY_LIST });
 };
 
 export const fetchInventoryLists = history => async dispatch => {

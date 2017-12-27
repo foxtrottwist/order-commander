@@ -25,7 +25,7 @@ class Dashboard extends Component {
         <DashboardBox>
           {!this.props ? null : (
             <ListView
-              lists={this.props.lists}
+              lists={this.props.inventoryLists}
               onSelectList={list => this.setState({ selectedList: list })}
               selectedList={this.state.selectedList}
             />
@@ -36,8 +36,8 @@ class Dashboard extends Component {
   }
 }
 
-function mapStateToProps({ lists }) {
-  return { lists };
+function mapStateToProps({ inventoryLists }) {
+  return { inventoryLists };
 }
 
 export default connect(mapStateToProps, actions)(withRouter(Dashboard));
