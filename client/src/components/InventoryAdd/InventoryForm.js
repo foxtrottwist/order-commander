@@ -10,6 +10,7 @@ import {
   Button,
   Error
 } from '../utils/sharedStyles';
+import InputField from '../InputField';
 
 const TitleField = ({ input, label, meta }) => {
   return (
@@ -23,16 +24,6 @@ const TitleField = ({ input, label, meta }) => {
           </option>
         ))}
       </select>
-      <Error>{meta.touched && meta.error}</Error>
-    </FieldBox>
-  );
-};
-
-const ItemField = ({ input, label, meta }) => {
-  return (
-    <FieldBox>
-      <label>{label}</label>
-      <input {...input} />
       <Error>{meta.touched && meta.error}</Error>
     </FieldBox>
   );
@@ -56,7 +47,7 @@ class InventoryForm extends Component {
               label="Items"
               type="text"
               name="list"
-              component={ItemField}
+              component={InputField}
             />
           </FieldBox>
           <ButtonBox>

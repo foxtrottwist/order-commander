@@ -6,30 +6,15 @@ import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
 
 import { LOGIN_FIELDS } from '../utils/constants';
-import {
-  FormBox,
-  FieldBox,
-  ButtonBox,
-  Button,
-  Error
-} from '../utils/sharedStyles';
-
-const ItemField = ({ input, label, meta }) => {
-  return (
-    <FieldBox>
-      <label>{label}</label>
-      <input {...input} />
-      <Error>{meta.touched && meta.error}</Error>
-    </FieldBox>
-  );
-};
+import { FormBox, FieldBox, ButtonBox, Button } from '../utils/sharedStyles';
+import InputField from '../InputField';
 
 class LoginForm extends Component {
   renderFields() {
-    return LOGIN_FIELDS.map(({ label, name }) => {
+    return LOGIN_FIELDS.map(({ label, name, type }) => {
       return (
         <FieldBox key={name}>
-          <Field label={label} type="text" name={name} component={ItemField} />
+          <Field label={label} type={type} name={name} component={InputField} />
         </FieldBox>
       );
     });

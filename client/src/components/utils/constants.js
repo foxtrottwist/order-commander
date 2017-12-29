@@ -12,8 +12,8 @@ const INVENTORY_FIELDS = [
 ];
 
 const LOGIN_FIELDS = [
-  { label: 'Email', name: 'email' },
-  { label: 'Password', name: 'password' }
+  { label: 'Email', name: 'email', type: 'text' },
+  { label: 'Password', name: 'password', type: 'password' }
 ];
 
 const INVENTORY_TITLES = [
