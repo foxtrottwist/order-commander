@@ -34,8 +34,13 @@ export const createUser = (values, history) => async dispatch => {
 };
 
 export const fetchUsers = () => async dispatch => {
-  const res = await axios.get('/api/users');
-  dispatch({ type: FETCH_USERS, payload: res.data });
+  try {
+    const res = await axios.get('/api/users');
+
+    dispatch({ type: FETCH_USERS, payload: res.data });
+  } catch (error) {
+    // ignoring for now, fix
+  }
 };
 
 export const createList = (values, history) => async dispatch => {

@@ -4,11 +4,11 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ListView from './ListView';
+import UserIndex from './UserIndex';
 import * as actions from '../../actions';
 
 const DashboardBox = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
 `;
 
@@ -16,6 +16,7 @@ class Dashboard extends Component {
   state = { selectedList: [] };
 
   componentWillMount() {
+    this.props.fetchUsers();
     this.props.fetchInventoryLists(this.props.history);
   }
 
@@ -23,6 +24,7 @@ class Dashboard extends Component {
     return (
       <div style={{ marginTop: '1.7rem' }}>
         <DashboardBox>
+          {!this.props.users ? null : <UserIndex users={this.props.users} />}
           {!this.props ? null : (
             <ListView
               lists={this.props.inventoryLists}
@@ -36,8 +38,8 @@ class Dashboard extends Component {
   }
 }
 
-function mapStateToProps({ inventoryLists }) {
-  return { inventoryLists };
+function mapStateToProps({ users, inventoryLists }) {
+  return { users, inventoryLists };
 }
 
 export default connect(mapStateToProps, actions)(withRouter(Dashboard));

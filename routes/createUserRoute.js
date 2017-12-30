@@ -7,10 +7,12 @@ router
   .route('/')
   .get(async (req, res) => {
     try {
-      // eslint-disable-next-line
-      const users = await User.find({ _id: { $nin: [req.user._id] } })
+      if (req.user.isAdmin) {
+        // eslint-disable-next-line
+        const users = await User.find({ _id: { $nin: [req.user._id] } })
 
-      res.send(users)
+        res.send(users)
+      }
     } catch (error) {
       res.send(error.message)
     }
