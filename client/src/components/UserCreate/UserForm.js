@@ -48,6 +48,18 @@ class UserForm extends Component {
   }
 }
 
+function validate(values) {
+  const errors = {};
+  USER_FIELDS.map(({ name, errorMessage }) => {
+    if (!values[name]) {
+      errors[name] = errorMessage;
+    }
+    return errors;
+  });
+
+  return errors;
+}
+
 export default connect(null, actions)(
-  reduxForm({ form: 'userForm' })(withRouter(UserForm))
+  reduxForm({ validate, form: 'userForm' })(withRouter(UserForm))
 );

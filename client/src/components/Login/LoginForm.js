@@ -39,6 +39,18 @@ class LoginForm extends Component {
   }
 }
 
+function validate(values) {
+  const errors = {};
+  LOGIN_FIELDS.map(({ name, errorMessage }) => {
+    if (!values[name]) {
+      errors[name] = errorMessage;
+    }
+    return errors;
+  });
+
+  return errors;
+}
+
 export default connect(null, actions)(
-  reduxForm({ form: 'loginForm' })(withRouter(LoginForm))
+  reduxForm({ validate, form: 'loginForm' })(withRouter(LoginForm))
 );

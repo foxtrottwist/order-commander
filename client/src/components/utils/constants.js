@@ -12,14 +12,39 @@ const INVENTORY_FIELDS = [
 ];
 
 const LOGIN_FIELDS = [
-  { label: 'Email', name: 'email', type: 'text' },
-  { label: 'Password', name: 'password', type: 'password' }
+  {
+    label: 'Email',
+    name: 'email',
+    type: 'text',
+    errorMessage: 'Please provide your email'
+  },
+  {
+    label: 'Password',
+    name: 'password',
+    type: 'password',
+    errorMessage: 'Please provide your password'
+  }
 ];
 
 const USER_FIELDS = [
-  { label: 'Email', name: 'email', type: 'text' },
-  { label: 'Password', name: 'password', type: 'password' },
-  { label: 'Confirm Password', name: 'confirm', type: 'password' },
+  {
+    label: 'Email',
+    name: 'email',
+    type: 'text',
+    errorMessage: 'You must provide an email'
+  },
+  {
+    label: 'Password',
+    name: 'password',
+    type: 'password',
+    errorMessage: 'You must provide a password'
+  },
+  {
+    label: 'Confirm Password',
+    name: 'confirm',
+    type: 'password',
+    errorMessage: 'Please confirm password'
+  },
   { label: 'Admin', name: 'isAdmin', type: 'checkbox' }
 ];
 
