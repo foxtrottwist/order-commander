@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import { INVENTORY_FIELDS, INVENTORY_TITLES } from '../utils/constants';
 import {
@@ -51,16 +51,13 @@ class InventoryForm extends Component {
             />
           </FieldBox>
           <ButtonBox>
-            <Link
-              to="/inventory-lists"
-              style={{
-                textDecoration: 'none',
-                color: '#b60009',
-                fontSize: '1.5rem'
-              }}
+            <Button
+              onClick={() => this.props.history.push('/dashboard')}
+              type="button"
+              color="#b60009"
             >
               Cancel
-            </Link>
+            </Button>
             <Button type="submit" color="#016025">
               Review &rarr;
             </Button>
@@ -87,4 +84,4 @@ export default reduxForm({
   validate,
   form: 'inventoryForm',
   destroyOnUnmount: false
-})(InventoryForm);
+})(withRouter(InventoryForm));

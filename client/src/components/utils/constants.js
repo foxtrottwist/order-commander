@@ -16,6 +16,13 @@ const LOGIN_FIELDS = [
   { label: 'Password', name: 'password', type: 'password' }
 ];
 
+const USER_FIELDS = [
+  { label: 'Email', name: 'email', type: 'text' },
+  { label: 'Password', name: 'password', type: 'password' },
+  { label: 'Confirm Password', name: 'confirm', type: 'password' },
+  { label: 'Admin', name: 'isAdmin', type: 'checkbox' }
+];
+
 const INVENTORY_TITLES = [
   { value: 'APPLES', title: 'APPLES' },
   { value: 'AVO / TOM', title: 'AVO / TOM' },
@@ -37,4 +44,4 @@ const INVENTORY_TITLES = [
   { value: 'WET WALL', title: 'WET WALL' }
 ];
 
-export { INVENTORY_FIELDS, LOGIN_FIELDS, INVENTORY_TITLES };
+export { INVENTORY_FIELDS, LOGIN_FIELDS, USER_FIELDS, INVENTORY_TITLES };

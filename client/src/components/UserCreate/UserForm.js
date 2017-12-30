@@ -5,16 +5,16 @@ import { withRouter } from 'react-router-dom';
 
 import * as actions from '../../actions';
 
-import { LOGIN_FIELDS } from '../utils/constants';
+import { USER_FIELDS } from '../utils/constants';
 import { FormBox, FieldBox, ButtonBox, Button } from '../utils/sharedStyles';
 import InputField from '../InputField';
 
 class UserForm extends Component {
   renderFields() {
-    return LOGIN_FIELDS.map(({ label, name }) => {
+    return USER_FIELDS.map(({ label, name, type }) => {
       return (
         <FieldBox key={name}>
-          <Field label={label} type="text" name={name} component={InputField} />
+          <Field label={label} type={type} name={name} component={InputField} />
         </FieldBox>
       );
     });
@@ -31,8 +31,15 @@ class UserForm extends Component {
         >
           {this.renderFields()}
           <ButtonBox>
+            <Button
+              onClick={() => this.props.history.push('/dashboard')}
+              type="button"
+              color="#b60009"
+            >
+              Cancel
+            </Button>
             <Button type="submit" color="#016025">
-              Create User
+              Submit
             </Button>
           </ButtonBox>
         </form>
