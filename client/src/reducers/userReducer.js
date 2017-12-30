@@ -1,8 +1,8 @@
-import { FETCH_INVENTORY_LISTS } from '../actions/types';
+import { FETCH_USERS } from '../actions/types';
 
 export default function(state = [], action) {
   switch (action.type) {
-    case FETCH_INVENTORY_LISTS:
+    case FETCH_USERS:
       return action.payload;
 
     default:

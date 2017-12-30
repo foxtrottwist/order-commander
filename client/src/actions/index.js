@@ -4,6 +4,7 @@ import {
   LOGIN,
   LOGOUT,
   CREATE_USER,
+  FETCH_USERS,
   CREATE_INVENTORY_LIST,
   FETCH_INVENTORY_LISTS
 } from './types';
@@ -25,11 +26,16 @@ export const logout = history => async dispatch => {
 };
 
 export const createUser = (values, history) => async dispatch => {
-  await axios.post('/api/create_user', values);
+  await axios.post('/api/users', values);
 
   history.push('/dashboard');
 
   dispatch({ type: CREATE_USER });
+};
+
+export const fetchUsers = () => async dispatch => {
+  const res = await axios.get('/api/users');
+  dispatch({ type: FETCH_USERS, payload: res.data });
 };
 
 export const createList = (values, history) => async dispatch => {

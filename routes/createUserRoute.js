@@ -3,21 +3,33 @@ const router = require('express').Router()
 
 const User = mongoose.model('users')
 
-router.route('/').post(async (req, res) => {
-  try {
-    const { email, password, isAdmin } = req.body
+router
+  .route('/')
+  .get(async (req, res) => {
+    try {
+      // eslint-disable-next-line
+      const users = await User.find({ _id: { $nin: [req.user._id] } })
 
-    const user = new User({
-      email,
-      password,
-      isAdmin,
-    })
+      res.send(users)
+    } catch (error) {
+      res.send(error.message)
+    }
+  })
+  .post(async (req, res) => {
+    try {
+      const { email, password, isAdmin } = req.body
 
-    await user.save()
-    res.send('Success!')
-  } catch (error) {
-    res.send(error.message)
-  }
-})
+      const user = new User({
+        email,
+        password,
+        isAdmin,
+      })
+
+      await user.save()
+      res.send('Success!')
+    } catch (error) {
+      res.send(error.message)
+    }
+  })
 
 module.exports = router
