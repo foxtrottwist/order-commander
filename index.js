@@ -13,6 +13,7 @@ const loginRoute = require('./routes/loginRoute')
 const logoutRoute = require('./routes/logoutRoute')
 const createUserRoute = require('./routes/createUserRoute')
 const inventoryRoute = require('./routes/inventoryRoute')
+const deleteListRoute = require('./routes/deleteListRoute')
 
 const requireLogin = passport.authenticate('local', { session: false })
 const requireAuthentication = passport.authenticate('jwt', { session: false })
@@ -31,6 +32,7 @@ app.use('/api/login', requireLogin, loginRoute)
 app.use('/api/logout', logoutRoute)
 app.use('/api/users', requireAuthentication, createUserRoute)
 app.use('/api/inventory_lists', requireAuthentication, inventoryRoute)
+app.use('/api/delete_lists', requireAuthentication, deleteListRoute)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))

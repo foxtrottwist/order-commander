@@ -16,8 +16,9 @@ class Dashboard extends Component {
   state = { selectedList: [] };
 
   componentWillMount() {
-    this.props.fetchUsers();
-    this.props.fetchInventoryLists(this.props.history);
+    const { history } = this.props;
+    this.props.fetchUsers(history);
+    this.props.fetchInventoryLists(history);
   }
 
   render() {
