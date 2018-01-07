@@ -7,7 +7,7 @@ router.route('/').post((req, res) => {
   res
     .cookie('access_token', token, {
       httpOnly: true,
-      secure: false,
+      secure: true,
       maxAge: fifteenMinutes,
     })
     .end()
