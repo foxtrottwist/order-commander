@@ -40,22 +40,27 @@ const ListIndex = ({
   history
 }) => (
   <InnerListBox>
-    {lists.map(({ title, _id, list, dateCreated }) => (
-      <ListHeader key={_id}>
-        <ItemDetail
-          onClick={() => onSelectList(list)}
-          list={list}
-          selectedList={selectedList}
-        >
-          <h4>{title}</h4>
-          <p>Created on: {new Date(dateCreated).toLocaleDateString()}</p>
-          <p>Contains {list.length} items</p>
-        </ItemDetail>
-        <button onClick={() => deleteInventoryList(_id, history)} type="button">
-          delete
-        </button>
-      </ListHeader>
-    ))}
+    {lists
+      .sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase())
+      .map(({ title, _id, list, dateCreated }) => (
+        <ListHeader key={_id}>
+          <ItemDetail
+            onClick={() => onSelectList(list)}
+            list={list}
+            selectedList={selectedList}
+          >
+            <h4>{title}</h4>
+            <p>Created on: {new Date(dateCreated).toLocaleDateString()}</p>
+            <p>Contains {list.length} items</p>
+          </ItemDetail>
+          <button
+            onClick={() => deleteInventoryList(_id, history)}
+            type="button"
+          >
+            delete
+          </button>
+        </ListHeader>
+      ))}
   </InnerListBox>
 );
 
