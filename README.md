@@ -1,25 +1,23 @@
 # Order Commander
 
-A full-stack inventory management application that serves as the administrative backend for mobile inventory counting workflows. Built to replace tedious manual processes in grocery retail purchasing with streamlined digital administration.
+A full-stack inventory management application that serves as the administrative backend for mobile inventory counting workflows. Built to replace clipboard and spreadsheet workflows in grocery retail purchasing with digital administration.
 
 ## Purpose
 
-When grocery store management introduced a new purchasing process requiring daily manual inventory counts and complex cross-referencing with sales data, I needed a system to manage product catalogs and serve data to the mobile counting application. This administrative interface became the foundation for transforming clipboard-based workflows into efficient digital processes.
+When grocery store management introduced a new purchasing process requiring daily manual inventory counts, cross-referencing with last week's sales data, and complex Excel-based calculations, I needed a system to replace clipboard and spreadsheet workflows with digital administration. This administrative interface became the foundation for transforming clipboard-based workflows into digital processes.
 
 ## Tech Stack
 
-<img src="https://raw.githubusercontent.com/foxtrottwist/foxtrottwist/main/assets/brider-codes.png" alt="Bridge Builder Fox mascot coding" width="600" height="400" align="right">
-
-*Bridger is here to help make inventory administration more accessible and user-friendly.*
+Bridger is here to help make inventory administration more accessible and user-friendly.
 
 **Frontend & Core:**
 - React 16.0 - Component-based administrative interface
-- Redux - State management for complex inventory data workflows
+- Redux - State management for inventory data workflows
 - React Router DOM - Navigation between inventory management sections
 - Styled Components - CSS-in-JS for maintainable administrative styling
 
 **Backend & Data:**
-- Node.js 9.3 - Server runtime optimized for API performance
+- Node.js 9.3 - Server runtime for API endpoints
 - Express.js 4.16 - RESTful API serving inventory data to the mobile application
 - MongoDB with Mongoose 4.12 - Document storage for flexible product schemas
 - JWT Authentication - Secure multi-user access and API endpoints
@@ -75,14 +73,14 @@ npm run dev
 
 **Development Commands:**
 - `npm run server` - Start backend server with auto-reload
-- `npm run client` - Start React development server  
+- `npm run client` - Start React development server
 - `npm run dev` - Run both frontend and backend concurrently
 
 ## Project Context
 
-This administrative system works alongside the Take Inventory mobile app to solve a specific workplace problem: transforming manual inventory processes that consumed hours daily into automated workflows. Together, these applications reduced inventory counting and purchase calculation time by 50%.
+This administrative system works alongside the Take Inventory mobile app to solve a specific workplace problem: transforming clipboard-based counting and Excel spreadsheet calculations into automated workflows. The web interface manages product catalogs, the mobile app handles floor-based counting, and CSV export feeds Excel workbooks for automated purchase calculations. Together, this reduced the time required to count inventory and calculate purchases by 50%.
 
-The web interface handles product catalog management and user administration, while the mobile app consumes this data for floor-based counting. The system earned recognition from store management and regional leadership, with other locations requesting similar implementations.
+The web interface handles product catalog management and user administration, while the mobile app consumes this data for floor-based counting. The system earned recognition from store management and regional leadership, with a neighboring store requesting help to streamline their operations using a similar approach.
 
 **System Integration:** Serves as the data backbone for Take Inventory mobile app, providing product lists via API and supporting Excel export workflows for purchase calculations.
 
@@ -90,4 +88,4 @@ The web interface handles product catalog management and user administration, wh
 
 This application works in conjunction with **[Take Inventory](https://github.com/foxtrottwist/take-inventory)**, a React Native mobile app that consumes the API endpoints for floor-based inventory counting. The mobile app handles the physical counting process, while Order Commander manages the administrative setup and user access.
 
-**Performance Achievement:** Combined system reduced daily inventory management time from 4+ hours to under 2 hours through digital automation and mobile-first counting workflows.
+**Performance Achievement:** Combined system reduced the time required to count inventory and calculate purchases by 50%, transforming hours of clipboard-based counting and manual Excel calculations into digital workflows focused on strategic buying decisions.
